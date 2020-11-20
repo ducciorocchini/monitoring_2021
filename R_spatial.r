@@ -63,10 +63,15 @@ ggplot(d, aes(x = biofuels, y = oxydative)) + geom_polygon()
 
 ############## IMPORT DATA FROM AN EXTERNAL SOURCE
 
+# Create a lab folder (also called directory) under the main disc and then set the working directory by:
+
 # setwd("path/lab")
 
 # setwd for Windows
 setwd("C:/lab/")
+
+# in case you could not create a lab folder:
+setwed("C:/")
 
 # setwd Mac
 setwd("/Users/yourname/lab/")
@@ -75,12 +80,16 @@ setwd("/Users/yourname/lab/")
 setwd("~/lab/")
 covid <- read.table("covid_agg.csv", header=TRUE)
 covid
+head(covid)
 
+summary(covid)
 
+# ggplot2
+library(ggplot2)
+ggplot(covid, aes(x = lon, y = lat)) + geom_point()
 
-
-
-
+# changing the size of the data...
+ggplot(covid, aes(x = lon, y = lat, size = cases)) + geom_point()
 
 
 
