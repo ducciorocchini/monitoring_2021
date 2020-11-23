@@ -46,6 +46,38 @@ points(covid_planar)
 
 install.packages("rgdal")
 
+library(rgdal)
+
+coastlines <- readOGR("ne_10m_coastline.shp")
+
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+
+png("figure1.png")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+dev.off()
+
+pdf("figure1.pdf")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+dev.off()
+
+###### interpolate case data
+
+marks(covid_planar) <- cases
+cases_map <- Smooth(covid_planar)
+
+plot(cases_map, col = cl)
+points(covid_planar)
+plot(coastlines, add = T)
+
 
 
 
