@@ -128,3 +128,34 @@ points(leo_ppp)
 # for linux
 q()
 # click yes
+
+############ Interpolation of students' data
+
+# setwd("path/lab")
+
+# setwd for Windows
+# setwd("C:/lab/")
+
+# setwd Mac
+# setwd("/Users/yourname/lab/")
+
+# Linux
+setwd("~/lab/")
+
+load("point_pattern_analysis.RData")
+
+ls()
+head(leo)
+
+library(spatstat)
+attach(leo)
+marks(leo_ppp) <- chlh
+chlh_map <- Smooth(leo_ppp)
+
+cl <- colorRampPalette(c('yellow','orange','red','green'))(100)  
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+
+
+
