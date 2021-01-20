@@ -82,7 +82,7 @@ plotRGB(EN, red=EN13, green=EN07, blue=EN01, stretch="lin")
 # boxplot
 dev.off()
 boxplot(EN,horizontal=T,axes=T,outline=F, col="red",xlab="NO2 - 8bit", ylab="Period")
-
+# lab stands for label here!
 
 
 
